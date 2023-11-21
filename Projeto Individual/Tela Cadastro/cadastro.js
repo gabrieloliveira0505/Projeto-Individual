@@ -1,37 +1,74 @@
 // Div's fora da "funtion" para a mensagem já aparecer quando a tela carregar 
-div_nomeErrado.innerHTML = `O nome deve conter mais de 7 caracteres`;
-div_emailErrado.innerHTML = `Informe um e-mail válido`;
+div_nomeErrado.innerHTML = `O nome deve conter mais de 3 caracteres`;
+div_usernameErrado.innerHTML = `Informe um username válido`;
+div_agenteErrado.innerHTML = `Informe um agente válido`;
+div_classeErrada.innerHTML = `Informe uma classe válida`;
 div_senhaErrada.innerHTML = `A senha deve conter mais de 8 caracteres <br> e pelo menos um caracter especial`;
-div_confirmacaoErrada.innerHTML = `Digite a senha novamente`;
-div_cnpjErrado.innerHTML = `Informe um CNPJ válido`;
 
 
-function Exibir(){
+function Exibir() {
     var nome = input_nome.value;
-    var email = input_email.value;
-    var cnpj = input_cnpj.value;
+    var username = input_username.value;
+    var agente = input_agente.value;
+    var classe = input_classe.value;
     var senha = input_senha.value;
-    var confirmacao = input_confirmacao.value;
 
-// DIV's sem texto para limpar após executar a function
+    // DIV's sem texto para limpar após executar a function
 
     div_nome.innerHTML = ``;
-    div_email.innerHTML = ``;
+    div_username.innerHTML = ``;
+    div_agente.innerHTML = ``;
+    div_classe.innerHTML = ``;
     div_senha.innerHTML = ``;
-    div_confirmacao.innerHTML = ``;
-    div_cnpj.innerHTML = ``;
-    
+
 
     div_nomeErrado.innerHTML = ``;
-    div_emailErrado.innerHTML = ``;
+    div_usernameErrado.innerHTML = ``;
+    div_agenteErrado.innerHTML = ``;
+    div_classeErrada.innerHTML = ``;
     div_senhaErrada.innerHTML = ``;
-    div_confirmacaoErrada.innerHTML = ``;
-    div_cnpjErrado.innerHTML = ``;
-    
+
 
 
     // O "Length" serve para saber o tamanho da palavra especificada antes do " . ", nesse caso o texto da variavel "nome"
-        if (nome.length > 7){ 
-            div_nome.innerHTML = `O nome é valido! <br>`
-        } else {div_nomeErrado.innerHTML = `Informe um nome válido <br>`}
+    if (nome.length > 3) {
+        div_nome.innerHTML = `O nome é valido! <br>`
+    } else { div_nomeErrado.innerHTML = `Informe um nome válido <br>` }
+
+
+    // indexOf verifica se tem um dos caracteres especificados dentro do (), se a condição for verdadeira ela responde algo >= 0;
+    // Nesse caso tambem usei o conector lógico && pois o email precisa ter o "@" e mais um sufixo (.com ou .br)
+    if (username.indexOf('#') >= 0) { div_username.innerHTML = 'Username válido! <br>' }
+    else { div_usernameErrado.innerHTML = 'Informe um username válido! <br>' }
+
+    if (agente.length > 3) {
+        div_agente.innerHTML = `agente válido! <br>`
+    } else { div_agenteErrado.innerHTML = `Informe um agente válido <br>` }
+
+    if (classe.indexOf('Duelista') >= 0
+        || classe.indexOf('Iniciador') >= 0
+        || classe.indexOf('Controlador') >= 0
+        || classe.indexOf('Sentinela') >= 0) {
+        div_classe.innerHTML = `Classe Válida <br>`
+    } else {
+        div_classeErrada.innerHTML = `Informe uma classe válida`
     }
+
+
+    if (senha.length >= 8 &&
+        (senha.indexOf('#') >= 0
+            || senha.indexOf('!') >= 0
+            || senha.indexOf('@') >= 0
+            || senha.indexOf('$') >= 0
+            || senha.indexOf('%') >= 0
+            || senha.indexOf('&') >= 0
+            || senha.indexOf('*') >= 0)
+    ) {
+        div_senha.innerHTML = ` Sua senha é válida! <br>`
+    } else {
+        div_senhaErrada.innerHTML = `Sua senha deve possuir ao menos 8 caracteres <br> e pelo menos um caracter especial! <br>`
+    }
+
+
+
+}

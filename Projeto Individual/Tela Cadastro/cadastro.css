@@ -92,8 +92,8 @@ h2{
  }
  
  .card {
-   height: 550px;
-    padding-top: 25px;
+   height: 635px;
+    padding-top: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -101,7 +101,7 @@ h2{
     border-radius: 15px;
     box-shadow: 0 0 10px 4px #ffffff;
     width: 30%;
-    margin-top: 90px;
+    margin-top: 40px;
     margin-left: 30px;
  }
  
@@ -110,6 +110,7 @@ h2{
     justify-content: center;
     font-size: 30px;
     margin-bottom: 25px;
+    color: white;
  }
  
  input,
@@ -126,7 +127,7 @@ h2{
     padding: 5px;
     cursor: pointer;
     font-weight: bold;
-    background: #001530;
+    background: black;
     box-shadow: 7px 6px 4px -5px #001530;
     color: white;
     border: none;
@@ -135,7 +136,7 @@ h2{
  
  
  #div_nome,
- #div_email,
+ #div_username,
  #div_senha,
  #div_confirmacao,
  #div_cnpj {
@@ -143,10 +144,10 @@ h2{
  }
  
  #div_nomeErrado,
- #div_emailErrado,
+ #div_usernameErrado,
  #div_senhaErrada,
- #div_confirmacaoErrada,
- #div_cnpjErrado {
+ #div_agenteErrado,
+ #div_classeErrada {
     color: red;
  }
  

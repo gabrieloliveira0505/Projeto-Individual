@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="cadastro.css">
     <script src="cadastro.js"></script>
+    
 </head>
 
 <header>
@@ -17,7 +18,7 @@
         <img class="imagem-logo" src="./logo.webp">
         </div>
         <div class="container"> <!--DIV CONTAINER-->
-            <h1 class="logo-cold">Vava<span class="logo-tech">Dos cria</span></h1>
+            <h1 class="logo-cold">Valo<span class="logo-tech">Info</span></h1>
 
             <div class="navbar"> <!--DIV NAVBAR-->
                 <ul>
@@ -33,29 +34,13 @@
                         </a>
                     </li>
 
-                    <li class="termo">
-                        <a href="#termolabeis">
-                           Termolabeis
+                    <li class="informacoes">
+                        <a href="#informacoes">
+                           Informações
                         </a>
                     </li>
 
-                    <li class="desperdicio">
-                        <a href="#desperdicio">
-                           Desperdício
-                        </a>
-                    </li>
-
-                    <li class="solucao">
-                        <a href="#solucao">
-                            Solução
-                        </a>
-                    </li>
-
-                    <li class="contato">
-                        <a href="#contato" class="nav-link">
-                            Contato
-                        </a>
-                    </li>
+                    
 
                 </ul>
             </div>
@@ -94,36 +79,36 @@
         
 
             <div class="container_inputs">
-                Nome <br> <input oninput="Exibir()" type="text" id="input_nome"
-                    placeholder="informe o nome de sua empresa">
+                <span style="color: white;">Nome</span> <br> <input oninput="Exibir()" type="text" id="input_nome"
+                    placeholder="Nome">
                 <div id="div_nome"></div> <br> <!-- Div caso o nome corresponda aos requisitos -->
                 <div id="div_nomeErrado"></div> <br> <!-- Div caso o nome não corresponda aos requisitos -->
             </div>
 
             <div class="container_inputs">
-                E-mail <br> <input oninput="Exibir()" type="text" id="input_email" placeholder="Informe seu e-mail">
-                <div id="div_email"></div> <br> <!-- Div caso o email corresponda aos requisitos -->
-                <div id="div_emailErrado"></div> <br> <!-- Div caso o email não corresponda aos requisitos -->
+                <span style="color: white;">Username</span> <br> <input oninput="Exibir()" type="text" id="input_username" placeholder="Username">
+                <div id="div_username"></div> <br> <!-- Div caso o email corresponda aos requisitos -->
+                <div id="div_usernameErrado"></div> <br> <!-- Div caso o email não corresponda aos requisitos -->
+            </div>
+            <div class="container_inputs">
+                <span style="color: white;">Agente</span> <br> <input oninput="Exibir()" type="text" id="input_agente"
+                    placeholder="Agente">
+                <div id="div_agente"></div> <br> <!-- Div caso a confirmação esteja igual a senha -->
+                <div id="div_agenteErrado"></div> <br> <!-- Div caso a confirmação esteja diferente da senha -->
+            </div>
+            
+            <div class="container_inputs">
+                <span style="color: white;">Classe</span> <br> <input oninput="Exibir()" type="text" id="input_classe" placeholder="Classe">
+                <div id="div_classe"></div> <br> <!-- Div caso o classe corresponda aos requisitos -->
+                <div id="div_classeErrada"></div> <br> <!-- Div caso o classe não corresponda aos requisitos -->
             </div>
 
             <div class="container_inputs">
-                CNPJ <br> <input oninput="Exibir()" type="text" id="input_cnpj" placeholder="Informe seu CNPJ">
-                <div id="div_cnpj"></div> <br> <!-- Div caso o cnpj corresponda aos requisitos -->
-                <div id="div_cnpjErrado"></div> <br> <!-- Div caso o CNPJ não corresponda aos requisitos -->
-            </div>
-
-            <div class="container_inputs">
-                Senha <br> <input oninput="Exibir()" type="password" id="input_senha" placeholder="Informe uma senha">
+                <span style="color: white;">Senha</span> <br> <input oninput="Exibir()" type="password" id="input_senha" placeholder="Senha">
                 <div id="div_senha"></div> <br> <!-- Div caso a senha corresponda aos requisitos -->
                 <div id="div_senhaErrada"></div> <br> <!-- Div caso a senha não corresponda aos requisitos -->
             </div>
 
-            <div class="container_inputs">
-                Confirmação senha <br> <input oninput="Exibir()" type="password" id="input_confirmacao"
-                    placeholder="Confirme a senha">
-                <div id="div_confirmacao"></div> <br> <!-- Div caso a confirmação esteja igual a senha -->
-                <div id="div_confirmacaoErrada"></div> <br> <!-- Div caso a confirmação esteja diferente da senha -->
-            </div>
 
             <button class="botao" onclick="Exibir()">Cadastrar </button> <br>
     </div>
