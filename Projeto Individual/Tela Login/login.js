@@ -1,13 +1,13 @@
 function acessar() {
 
-    var email = ipt_email.value;
+    var username = ipt_username.value;
     var senha = ipt_senha.value;
   
-    if (email.indexOf('@') >= 0 && (email.indexOf('.com') >= 0 ||  email.indexOf('.br') >= 0)) {
-      div_mensagem.innerHTML = ' <p class="sucesso"> Email correto <br> </p>';
+    if (username.indexOf('#') >= 0) {
+      div_mensagem.innerHTML = ' <p class="sucesso"> username correto <br> </p>';
     }
     else {
-      div_mensagem.innerHTML = ' <p class="erro"> Coloque um email valido <br></p>'
+      div_mensagem.innerHTML = ' <p class="erro"> Coloque um username valido <br></p>'
     }
   
   

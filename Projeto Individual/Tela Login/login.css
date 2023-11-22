@@ -119,19 +119,19 @@
   
   
   
-  .ipt_senha, .ipt_email {
+  .ipt_senha, .ipt_username {
       border: 1px solid;
       border-radius: 8px;
       padding-left: 10px
   }
   
-  .ipt_senha, .ipt_email, .botao{
+  .ipt_senha, .ipt_username, .botao{
       width: 270px;
       height: 40px;
   }
   
   
-  .email, .senha {
+  .username, .senha {
       margin: 20px 0 10px 0;
   }
   
