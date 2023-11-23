@@ -161,7 +161,7 @@
  }
  
  .footer .container .imagem-footer{
-    background-image: url('./footer.png'); /* Substitua pelo caminho correto para a sua imagem */
+    background-image: url('../assets/footer.png'); /* Substitua pelo caminho correto para a sua imagem */
     background-size: cover; /* Ajusta o tamanho da imagem para cobrir todo o rodapé */
     padding: 100px; /* Espaçamento interno no rodapé */
     filter: grayscale(120%) 
