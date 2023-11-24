@@ -20,6 +20,19 @@ fkElo int,
 	foreign key (fkElo) references elo (idElo)
 );
 
+CREATE TABLE pontuacao (
+idPontuacao int,
+pontuacao int,
+fkJogador int,
+	foreign key (fkJogador) references jogador (idJogador),
+    primary key (idPontuacao,fkJogador))auto_increment = 200;
+    
+    
+    select * from pontuacao;
+    
+    
+
+
 select * from jogador;
 select * from elo;
 
@@ -37,6 +50,3 @@ INSERT INTO elo values
     
     INSERT INTO jogador VALUES
     (null,"Gabriel","biel#2002", 'vava2023',100);
-    
-    
-
