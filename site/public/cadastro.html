@@ -7,15 +7,15 @@
     <title>Cadastro</title>
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/cadastro.css">
-    <script src="cadastro.js"></script>
-    
+    <script src="./js/cadastro.js"></script>
+
 </head>
 
 <header>
 
     <div class="header"> <!--DIV HEADER-->
         <div class="card-logo">
-        <img class="imagem-logo" src="./assets/logo.webp">
+            <img class="imagem-logo" src="./assets/logo.webp">
         </div>
         <div class="container"> <!--DIV CONTAINER-->
             <h1 class="logo-cold">Valo<span class="logo-tech">Info</span></h1>
@@ -36,11 +36,11 @@
 
                     <li class="informacoes">
                         <a href="#informacoes">
-                           Informações
+                            Informações
                         </a>
                     </li>
 
-                    
+
 
                 </ul>
             </div>
@@ -53,9 +53,9 @@
                     </li>
 
                     <li><a href="#">
-                        <b><b><i class="uil uil-sign-in-alt icon-login"></i></b>Login</b>
-                    </a>
-                </li>  
+                            <b><b><i class="uil uil-sign-in-alt icon-login"></i></b>Login</b>
+                        </a>
+                    </li>
                 </ul>
 
             </div> <!--FIM CADASTRO-LOGIN-->
@@ -65,56 +65,69 @@
 
 </header>
 
-<body>
+<body onload="consultarElos()">
 
     <div class="imagem-fundo">
 
-    <!-- A estilização está toda dentro do CSS, no geral só coloquei vermelho nas divs com o texto de erro e verde no texto de validação positiva -->
-    <section class="card_flex">
+        <!-- A estilização está toda dentro do CSS, no geral só coloquei vermelho nas divs com o texto de erro e verde no texto de validação positiva -->
+        <section class="card_flex">
 
-    
-    <div class="card">
 
-        <h1 class="titulo_cadastro">Cadastre-se</h1>
-        
+            <div class="card">
 
-            <div class="container_inputs">
-                <span style="color: white;">Nome</span> <br> <input oninput="Exibir()" type="text" id="input_nome"
-                    placeholder="Nome">
-                <div id="div_nome"></div> <br> <!-- Div caso o nome corresponda aos requisitos -->
-                <div id="div_nomeErrado"></div> <br> <!-- Div caso o nome não corresponda aos requisitos -->
+                <h1 class="titulo_cadastro">Cadastre-se</h1>
+
+
+                <div class="container_inputs">
+                    <span style="color: white;">Nome</span> <br> <input type="text" id="input_nome" placeholder="Nome">
+                    <div id="div_nome"></div> <br> <!-- Div caso o nome corresponda aos requisitos -->
+                    <div id="div_nomeErrado"></div> <br> <!-- Div caso o nome não corresponda aos requisitos -->
+                </div>
+
+                <div class="container_inputs">
+                    <span style="color: white;">Username</span> <br> <input type="text" id="input_username"
+                        placeholder="Username">
+                    <div id="div_username"></div> <br> <!-- Div caso o email corresponda aos requisitos -->
+                    <div id="div_usernameErrado"></div> <br> <!-- Div caso o email não corresponda aos requisitos -->
+                </div>
+
+                <div class="container_inputs">
+                    <span style="color: white;">Elo</span> <br>
+                    <select id="input_elo">
+                        <option value="0">Nenhum</option>
+                        
+                    </select>
+
+
+                </div>
+
+                <div class="container_inputs">
+                    <span style="color: white;">Agente</span> <br> <input type="text" id="input_agente"
+                        placeholder="Agente">
+                    <div id="div_agente"></div> <br> <!-- Div caso a confirmação esteja igual a senha -->
+                    <div id="div_agenteErrado"></div> <br> <!-- Div caso a confirmação esteja diferente da senha -->
+                </div>
+
+                <div class="container_inputs">
+                    <span style="color: white;">Classe</span> <br> <input type="text" id="input_classe"
+                        placeholder="Classe">
+                    <div id="div_classe"></div> <br> <!-- Div caso o classe corresponda aos requisitos -->
+                    <div id="div_classeErrada"></div> <br> <!-- Div caso o classe não corresponda aos requisitos -->
+                </div>
+
+                <div class="container_inputs">
+                    <span style="color: white;">Senha</span> <br> <input type="password" id="input_senha"
+                        placeholder="Senha">
+                    <div id="div_senha"></div> <br> <!-- Div caso a senha corresponda aos requisitos -->
+                    <div id="div_senhaErrada"></div> <br> <!-- Div caso a senha não corresponda aos requisitos -->
+                </div>
+
+
+                <button class="botao" onclick="Exibir()">Cadastrar </button> <br>
             </div>
 
-            <div class="container_inputs">
-                <span style="color: white;">Username</span> <br> <input oninput="Exibir()" type="text" id="input_username" placeholder="Username">
-                <div id="div_username"></div> <br> <!-- Div caso o email corresponda aos requisitos -->
-                <div id="div_usernameErrado"></div> <br> <!-- Div caso o email não corresponda aos requisitos -->
-            </div>
-            <div class="container_inputs">
-                <span style="color: white;">Agente</span> <br> <input oninput="Exibir()" type="text" id="input_agente"
-                    placeholder="Agente">
-                <div id="div_agente"></div> <br> <!-- Div caso a confirmação esteja igual a senha -->
-                <div id="div_agenteErrado"></div> <br> <!-- Div caso a confirmação esteja diferente da senha -->
-            </div>
-            
-            <div class="container_inputs">
-                <span style="color: white;">Classe</span> <br> <input oninput="Exibir()" type="text" id="input_classe" placeholder="Classe">
-                <div id="div_classe"></div> <br> <!-- Div caso o classe corresponda aos requisitos -->
-                <div id="div_classeErrada"></div> <br> <!-- Div caso o classe não corresponda aos requisitos -->
-            </div>
-
-            <div class="container_inputs">
-                <span style="color: white;">Senha</span> <br> <input oninput="Exibir()" type="password" id="input_senha" placeholder="Senha">
-                <div id="div_senha"></div> <br> <!-- Div caso a senha corresponda aos requisitos -->
-                <div id="div_senhaErrada"></div> <br> <!-- Div caso a senha não corresponda aos requisitos -->
-            </div>
-
-
-            <button class="botao" onclick="Exibir()">Cadastrar </button> <br>
-    </div>
-
-    </section>
-</div> <!-- FIM IMAGEM FUNDO-->
+        </section>
+    </div> <!-- FIM IMAGEM FUNDO-->
 
 </body>
 
@@ -137,10 +150,10 @@
         <span class="titles-footer">Redes Sociais</span>
         <div class="icones-flex">
             <i class="instagram icones"></i>
-            
-    
+
+
             <i class="github icones"></i>
-           
+
         </div>
     </div>
 </div>
@@ -149,9 +162,9 @@
 <footer class="footer">
     <div class="container">
         <div class="imagem-footer">
-</div>
+        </div>
 
-            </div>
+    </div>
 </footer>
 
 </html>

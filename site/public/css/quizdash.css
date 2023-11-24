@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto:wght@300&display=swap');
+
+.containerr{
+max-width: 700px;
+margin: auto;
+padding: 20px;
+}
+
+section{
+    border: 2px solid #171614;
+    border-radius: 7px;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+label{
+    display: block;
+    margin-left: 50vh;
+    padding: 7px;
+    border-radius: 7px;
+    cursor: pointer;
+    border: 1px dashed #171614;
+    margin-bottom: 3px;
+}
+
+h3{
+    margin-left: 50vh;
+}
+
+label:hover{
+    background: #d8b804;
+}
+button{
+    width: 30%;
+    display: block;
+    margin-left: 90vh;
+    padding: 10px;
+    background-color: #171614;
+    color: #e7eaf0;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+
+}
+button:hover{
+    background: #4d4646;
+    color: aqua;
+}
+h2{
+    text-align: center;
+    
+}
+
+#resultado{
+    font-size: 30px;
+    color: #adb8b1,
+}
+
+
+
+
+body {
+    margin: 0;
+    background-color: #e7eaf0;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    background-color: #e7e4de ;
+    padding-left: 380px;
+    border-bottom: 4px solid #171614;
+}
+
+.titulo {
+    font-size: 25px;
+    color: #d8b804;
+}
+
+body{
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: 'Poppins', sans-serif;
+  
+  }
+  
+  .foto{
+    height: 110px;
+    width: 125px;
+    margin-bottom: 5px;
+    object-fit: cover;
+  }
+
+  .arquivo{
+    color: #dfd3d3;
+    border-radius: 5px;
+    font-size: 13px;
+    border: none;
+  }
+  
+  #menuLateral{
+    height: 100%;
+    width: 22%;
+    background-color: #171614;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    text-align: center;
+    padding-top: 2%;
+  }
+  
+  .container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .container-itens {
+    margin-top: 30px
+  }
+  
+  .item{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 220px;
+    border-bottom: solid white 1px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+  }
+  
+  #menuLateral a{
+    padding: 16px;
+    text-decoration: none;
+    font-size: 22px;
+    color: white;
+    display: block;
+    cursor: pointer;
+    width: fit-content;
+  }
+  
+  #menuLateral a span {
+    padding-right: 25px;
+  }
+  
+  #menuLateral p{
+    font-size: 28px;
+    color: white;
+    display: block;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  
+  /* #buttonDeslogar{
+    border: none;
+    color: #184062;  ;
+    background-color: #F8F5EC;
+    font-weight: bold;
+    font-size: 15px;
+    width: 80px;
+    height: 35px;
+    margin-top: 15px;
+    border-radius: 5%;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  } */
+  
+  .buttonSair {
+    margin-top: 45px;
+  }
+  
+  #conteudoPrincipal{
+    margin-left: 23%;
+  }
+  
