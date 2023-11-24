@@ -6,6 +6,9 @@ CREATE TABLE elo (
 idElo int primary key auto_increment,
 elo varchar(45))auto_increment = 100;
 
+
+select * from jogador;
+
 CREATE TABLE jogador (
 idJogador int primary key auto_increment,
 nome varchar(45),
@@ -17,8 +20,18 @@ fkElo int,
 	foreign key (fkElo) references elo (idElo)
 );
 
+select * from jogador;
+select * from elo;
 
-
+INSERT INTO elo values
+    (null,"Bronze"),
+    (null,"Prata"),
+    (null,"Ouro"),
+    (null,"Platina"),
+    (null,"Diamante"),
+    (null,"Ascendente"),
+    (null,"Imortal");
+    
     INSERT INTO elo values
     (null,"Radiante");
     
