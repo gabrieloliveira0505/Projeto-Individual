@@ -111,54 +111,15 @@
         });
 
         
-                        /* -- luminosidade -- */
-        var contextoLuminosidade = document.getElementById('luminosidade').getContext('2d');
-        contextoLuminosidade.canvas.width = 1000;
-        contextoLuminosidade.canvas.height = 300;
-        var luminosidade = new Chart(
-            contextoLuminosidade,
-            {
-                type: 'line',
-                data: {
-                    datasets: [{
-                        label: 'Luminosidade',
-                        type: 'line',
-                        borderColor: ['#ffd902'],
-                        backgroundColor: ['#ffe135']
-                    }]
-                },
-                options: {
-                    scales: {
-                        xAxes: [{
-                            distribution: 'series',
-                            ticks: {
-                                beginAtZero: true
-                            }
-                        }],
-                        yAxes: [{
-                            scaleLabel: {
-                                display: true,
-                                labelString: 'Luminosidade'
-                            },
-                            ticks: {
-                                beginAtZero: true
-                            }
-                        }]
-                    },
-                    animation: {
-                        duration: 0
-            }
-        }
-    }
-);
+        
 
        
 
         var paginacao = {};
         var tempo = {};
-        function obterDados(grafico, endpoint) {
+        function corrigir(grafico, endpoint) {
             var http = new XMLHttpRequest();
-            http.open('GET', 'http://localhost:3000/sensores/' + endpoint, false);
+            http.open('GET', 'http://localhost:3000/quizdash' + endpoint, false);
             http.send(null);
             var valores = JSON.parse(http.responseText);
             if (paginacao[endpoint] == null) {
@@ -186,10 +147,7 @@
 
         setInterval(() => {
             obterDados(dht11Umidade, 'dht11/umidade');
-            obterDados(dht11Temperatura, 'dht11/temperatura');
-            obterDados(luminosidade, 'luminosidade');
-            obterDados(lm35Temperatura, 'lm35/temperatura');
-            obterDados(chave, 'chave');
+            corrigir(ctx,'dash-grafico')
         }, 1000);
         
         </script>
