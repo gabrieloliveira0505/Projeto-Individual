@@ -55,101 +55,130 @@
 
     <script>
          
-         const ctx = document.getElementById('myChart');
-      
-      new Chart(ctx, {
-        type: 'line',
-        data: {
-          labels: ['Bronze', 'Prata', '14:00', '15:00', '16:00', '17:00'],
-          datasets: [{
-            label: 'Temperatura',
-            data: [30, 29, 28, 25, 22,23],
+         const dataDashboardHtml = {
+        labels: [],
+        datasets: [{
+            label: 'Acertos',
+            backgroundColor: '#00d9ff',
+            data: [],
             borderWidth: 1,
-            backgroundcolor:'rgb (139,0,0)'
-            },
-            {
-            label: 'Umidade',
-            data: [80, 82, 80, 85, 80,83],
-            borderWidth: 1,
-            backgroundcolor:'rgb (30,144,255)'
-            }
-          ]
         },
-        
-        options: {
-          scales: {
+        ]
+    }
+
+    const dataDashboardCss = {
+        labels: [],
+        datasets: [{
+            label: 'Acertos',
+            backgroundColor: '#00d9ff',
+            data: [],
+            borderWidth: 1,
+        },
+        ]
+    }
+
+    const options = {
+         
+        scales: {
+            x: {
+                grid: {
+                    color: 'white' // Mudar a cor da grade no eixo x
+                },
+                ticks: {
+                    color: 'white' // Cor das labels no eixo x
+                }
+            },
             y: {
-              beginAtZero: true
+                grid: {
+                    color: 'white' // Mudar a cor da grade no eixo y
+                },
+                ticks: {
+                    color: 'white' // Cor das labels no eixo x
+                }
             }
-          }
+        },
+        plugins: {
+            legend: {
+                display: true,
+                labels: {
+                    color: 'white'
+                }
+            }
         }
-      });
+    }
 
+    const ctx = document.getElementById('myChart');
+    var htmlChart = new Chart(ctx, {
+        type: 'bar',
+        data: dataDashboardHtml,
+        options
+    });
 
-      const ctx2 = document.getElementById('myChart2');
-      
-        new Chart(ctx2, {
-          type: 'bar',
-          data: {
-            labels: ['Bronze', 'Prata', 'Ouro', 'Platina', 'Diamante', 'Ascendente','Imortal','Radiante'],
-            datasets: [{
-              label: 'Elos',
-              data: [22, 24, 71859, 68392, 34860, 11364, 2750, 500],
-              borderWidth: 1,
-              backgroundcolor:'rgb (139,0,0)'
-              }, 
-            ]
-          },
-          
-          options: {
-            scales: {
-              y: {
-                beginAtZero: true
-              }
-            }
-          }
-        });
+    const ctx2 = document.getElementById('myChart2');
+    var cssChart = new Chart(ctx2, {
+        type: 'bar',
+        data: dataDashboardCss,
+        options
+    });
 
-        
-        
+    function dado() {
+        dados.style.display = 'block'
+        analytics.style.display = 'none'
+    }
+
+    // async function anali() {
+    //     dados.style.display = 'none'
+    //     analytics.style.display = 'block'
+    //     var idJogador = sessionStorage.ID_USUARIO
+
+    //     var resultado = await fetch("/usuarios/dash", {
+    //         method: "POST",
+    //         headers: {
+    //             "Content-Type": "application/json",
+    //         },
+    //         body: JSON.stringify({
+    //             idJogadorServer: idJogador,
+    //         }),
+    //     });
+
+    //     const resposta = await resultado.json();
 
        
 
-        var paginacao = {};
-        var tempo = {};
-        function corrigir(grafico, endpoint) {
-            var http = new XMLHttpRequest();
-            http.open('GET', 'http://localhost:3000/quizdash' + endpoint, false);
-            http.send(null);
-            var valores = JSON.parse(http.responseText);
-            if (paginacao[endpoint] == null) {
-                paginacao[endpoint] = 0;
-            }
-            if (tempo[endpoint] == null) {
-                tempo[endpoint] = 0;
-            }
-            // Exibir à partir do último elemento exibido anteriormente
-            var ultimaPaginacao = paginacao[endpoint];
-            paginacao[endpoint] = valores.length;
-            var valores = valores.slice(ultimaPaginacao);
-            valores.forEach((valor) => {
-                //Máximo de 60 itens exibidos no gráfico
-                if (grafico.data.labels.length == 10 && grafico.data.datasets[0].data.length == 10) {
-                    grafico.data.labels.shift();
-                    grafico.data.datasets[0].data.shift();
-                }
 
-                grafico.data.labels.push(tempo[endpoint]++);
-                grafico.data.datasets[0].data.push(parseFloat(valor));
-                grafico.update();
-            })
-        }
-
-        setInterval(() => {
-            obterDados(dht11Umidade, 'dht11/umidade');
-            corrigir(ctx,'dash-grafico')
-        }, 1000);
         
+
+    //     var response = await resultadoDashboard.json();
+
+    //     onUpdateChartHtml(response);
+    //     onUpdateChartCSS(response);
+    // }
+
+    // const onUpdateChartHtml = ({ dadosQuizHtml }) => {
+    //     var labels = dadosQuizHtml.map((args, index) => `Tentativa - ${index + 1}`)
+
+    //     var acertosHtml = dadosQuizHtml.map(args => args.qtdAcertosHtml);
+        
+
+    //     dataDashboardHtml.labels = labels;
+    //     dataDashboardHtml.datasets[0].data = acertosHtml;
+        
+
+    //     htmlChart.update();
+    // };
+
+    // const onUpdateChartCSS = ({ dadosQuizCss }) => {
+    //     var labels = dadosQuizCss.map((args, index) => `Tentativa - ${index + 1}`)
+
+    //     var acertosCss = dadosQuizCss.map(args => args.qtdAcertosCss);
+        
+
+    //     dataDashboardCss.labels = labels;
+    //     dataDashboardCss.datasets[0].data = acertosCss;
+       
+
+    //     cssChart.update();
+    // };
         </script>
 </body>
 </html>

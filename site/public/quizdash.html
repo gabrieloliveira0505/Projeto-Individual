@@ -9,6 +9,22 @@
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="icon" href="../public/assets/logo.webp">
     <script src="./js/quizdash.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script>
+    <!-- <script src="http://www.chartjs.org/samples/latest/utils.js"></script> -->
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="./css/dashboard.css">
+    <style>
+        canvas {
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+        }
+    </style>
+
+    
     <title>Quiz | Valorant</title>
 </head>
 
@@ -289,7 +305,154 @@
         <button onclick="corrigir()">Corrigir</button>
         <h2>Quantidade acertadas: <span id="resultado"></span></h2>
     </div>
+
+    <canvas id="myChart" width="400px" height="200px" style="position: relative; height:400px; width:700px"></canvas>
+        
+    </div>
+
+    <div>
+        <canvas id="myChart2" width="400px" height="200px" style="position: relative; "></canvas>
+    </div>
+
+</body>
+
+    
     <script>
-       
+        const dataDashboardHtml = {
+        labels: [],
+        datasets: [{
+            label: 'Acertos',
+            backgroundColor: '#00d9ff',
+            data: [],
+            borderWidth: 1,
+        },
+        ]
+    }
+
+    const dataDashboardCss = {
+        labels: [],
+        datasets: [{
+            label: 'Acertos',
+            backgroundColor: '#00d9ff',
+            data: [],
+            borderWidth: 1,
+        },
+        ]
+    }
+
+    const options = {
+         
+        scales: {
+            x: {
+                grid: {
+                    color: 'white' // Mudar a cor da grade no eixo x
+                },
+                ticks: {
+                    color: 'white' // Cor das labels no eixo x
+                }
+            },
+            y: {
+                grid: {
+                    color: 'white' // Mudar a cor da grade no eixo y
+                },
+                ticks: {
+                    color: 'white' // Cor das labels no eixo x
+                }
+            }
+        },
+        plugins: {
+            legend: {
+                display: true,
+                labels: {
+                    color: 'white'
+                }
+            }
+        }
+    }
+
+    const ctx = document.getElementById('myChart');
+    var htmlChart = new Chart(ctx, {
+        type: 'bar',
+        data: dataDashboardHtml,
+        options
+    });
+
+    const ctx2 = document.getElementById('myChart2');
+    var cssChart = new Chart(ctx2, {
+        type: 'bar',
+        data: dataDashboardCss,
+        options
+    });
+
+
+    function dado() {
+        dados.style.display = 'block'
+        analytics.style.display = 'none'
+    }
+
+    async function anali() {
+        dados.style.display = 'none'
+        analytics.style.display = 'block'
+        var idJogador = sessionStorage.ID_JOGADOR
+
+        var resultado = await fetch("/usuario/pegarDadosQuiz", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                idJogadorServer: idJogador,
+            }),
+        });
+
+        const resposta = await resultado.json();
+
+        tHtml.innerHTML = resposta.tentativaQuizHtml
+        // tCss.innerHTML = resposta.tentativaQuizCss
+        // tTotal.innerHTML = resposta.totalQuizRealizado
+
+
+        var resultadoDashboard = await fetch("/usuario/pegarDadosQuiz", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                idJogadorServer: idJogador,
+            }),
+        });
+
+        var response = await resultadoDashboard.json();
+
+        onUpdateChartHtml(response);
+        // onUpdateChartCSS(response);
+    }
+
+    const onUpdateChartHtml = ({ dadosQuizHtml }) => {
+        var labels = dadosQuizHtml.map((args, index) => `Tentativa - ${index + 1}`)
+
+        var acertos = dadosQuizHtml.map(args => args.qtdAcertosHtml);
+        // var errosHtml = dadosQuizHtml.map(args => args.qtdErrosHtml);
+
+        dataDashboardHtml.labels = labels;
+        dataDashboardHtml.datasets[0].data = acertos;
+        // dataDashboardHtml.datasets[1].data = errosHtml;
+
+        htmlChart.update();
+    };
+
+    // const onUpdateChartCSS = ({ dadosQuizCss }) => {
+    //     var labels = dadosQuizCss.map((args, index) => `Tentativa - ${index + 1}`)
+
+    //     var acertosCss = dadosQuizCss.map(args => args.qtdAcertosCss);
+    //     var errosCss = dadosQuizCss.map(args => args.qtdErrosCss);
+
+    //     dataDashboardCss.labels = labels;
+    //     dataDashboardCss.datasets[0].data = acertosCss;
+    //     dataDashboardCss.datasets[1].data = errosCss;
+
+    //     cssChart.update();
+    // };
+
 
     </script>

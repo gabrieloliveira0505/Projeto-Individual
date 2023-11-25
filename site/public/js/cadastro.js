@@ -1,9 +1,9 @@
 // Div's fora da "funtion" para a mensagem já aparecer quando a tela carregar 
-div_nomeErrado.innerHTML = `O nome deve conter mais de 3 caracteres`;
-div_usernameErrado.innerHTML = `Informe um username válido`;
-div_agenteErrado.innerHTML = `Informe um agente válido`;
-div_classeErrada.innerHTML = `Informe uma classe válida`;
-div_senhaErrada.innerHTML = `A senha deve conter mais de 8 caracteres <br> e pelo menos um caracter especial`;
+// div_nomeErrado.innerHTML = `O nome deve conter mais de 3 caracteres`;
+// div_usernameErrado.innerHTML = `Informe um username válido`;
+// div_agenteErrado.innerHTML = `Informe um agente válido`;
+// div_classeErrada.innerHTML = `Informe uma classe válida`;
+// div_senhaErrada.innerHTML = `A senha deve conter mais de 8 caracteres <br> e pelo menos um caracter especial`;
 
 
 function Exibir() {
@@ -83,6 +83,10 @@ function Exibir() {
       idElo,
     })
   });
+  setTimeout(() => {
+    window.location = "./login.html";
+    
+  }, "2000");
 }
 
 async function consultarElos() {
@@ -107,48 +111,5 @@ async function consultarElos() {
 
 }
 
-function cadastrar() {
-  // aguardar();
 
-  //Recupere o valor da nova input pelo nome do id
-  // Agora vá para o método fetch logo abaixo
-  var nomeVar = input_nome.value;
-  var usernameVar = input_username.value;
-  var agenteVar = input_agente.value;
-  var classeVar = input_classe.value;
-  var senhaVar = input_senha.value;
 
-  if (
-    nomeVar == "" ||
-    usernameVar == "" ||
-    agenteVar == "" ||
-    classeVar == "" ||
-    senhaVar == ""
-  ) {
-    cardErro.style.display = "block";
-    mensagem_erro.innerHTML =
-      "(Mensagem de erro para todos os campos em branco)";
-
-    finalizarAguardar();
-    return false;
-  } else {
-    setInterval(sumirMensagem, 5000);
-  }
-
-  // Enviando o valor da nova input
-  fetch("/usuarios/cadastrar", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      // crie um atributo que recebe o valor recuperado aqui
-      // Agora vá para o arquivo routes/usuario.js
-      nomeServer: nomeVar,
-      usernameServer: usernameVar,
-      agenteServer: agenteVar,
-      classeServer: classeVar,
-      senhaServer: senhaVar
-    }),
-  })
-}

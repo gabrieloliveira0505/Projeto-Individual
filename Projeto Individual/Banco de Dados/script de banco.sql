@@ -7,7 +7,6 @@ idElo int primary key auto_increment,
 elo varchar(45))auto_increment = 100;
 
 
-select * from jogador;
 
 CREATE TABLE jogador (
 idJogador int primary key auto_increment,
@@ -21,22 +20,33 @@ fkElo int,
 );
 
 CREATE TABLE pontuacao (
-idPontuacao int,
+idPontuacao int auto_increment,
 pontuacao int,
 fkJogador int,
 	foreign key (fkJogador) references jogador (idJogador),
     primary key (idPontuacao,fkJogador))auto_increment = 200;
     
+    INSERT INTO pontuacao values
+    (null, 0, 1),
+    (null, 1, 1),
+    (null, 2, 1),
+    (null, 3, 1),
+    (null, 4, 1),
+    (null, 5, 1),
+    (null, 6, 1),
+    (null, 7, 1),
+    (null, 8, 1),
+    (null, 9, 1),
+    (null, 10, 1),
+    (null, 11, 1),
+    (null, 12, 1),
+    (null, 13, 1),
+    (null, 14, 1),
+    (null, 15, 1);
     
-    select * from pontuacao;
     
     
-
-
-select * from jogador;
-select * from elo;
-
-INSERT INTO elo values
+    INSERT INTO elo values
     (null,"Bronze"),
     (null,"Prata"),
     (null,"Ouro"),
@@ -49,4 +59,20 @@ INSERT INTO elo values
     (null,"Radiante");
     
     INSERT INTO jogador VALUES
-    (null,"Gabriel","biel#2002", 'vava2023',100);
+    (null,"Gabriel","biel#2002",'Reyna','Duelista', 'vava2023',100);
+    
+    select * from pontuacao;
+    
+    
+    select * from pontuacao where fkJogador = 1;
+    
+    
+    
+    
+ 
+    
+
+
+select * from jogador;
+select * from elo;
+
