@@ -71,6 +71,8 @@ fkJogador int,
     
  
     
+SELECT pontuacao as Pontuação FROM pontuacao join jogador  on 
+fkJogador = idJogador;
 
 
 select * from jogador;

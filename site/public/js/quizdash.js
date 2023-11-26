@@ -42,11 +42,21 @@ function corrigir() {
     .then(function (resposta) {
       console.log("resposta: ", resposta);
       if (resposta.ok) {
+        console.log(JSON.stringify(resposta))
+        resposta.json().then(
+          resposta => {
+                  var pontuacao = [resposta[0].pontuacao];
+                  chartAcerto.data.datasets[0].data = pontuacao
+                  
+                  chartAcerto.update();
+            // console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+          }
+          )
 
-        setTimeout(() => {
-          window.location = "./quizdash.html";
+        // setTimeout(() => {
+        //   window.location = "./quizdash.html";
 
-        }, "5000");
+        // }, "5000");
       } else {
         throw "Houve um erro ao tentar realizar o cadastro!";
       }

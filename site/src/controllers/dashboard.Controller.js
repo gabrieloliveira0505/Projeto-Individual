@@ -10,7 +10,13 @@ function resultadoQuiz(idJogador, acertos) {
     dashboardModel.resultadoQuiz(idJogador, acertos)
         .then(
             function (resultado) {
-                res.status(201).json()
+                dashboardModel.pegarDadosQuiz(resultado.insertId).then(function(resultado){
+                    console.log(resultado)
+                    res.status(201).json(resultado)
+                }
+
+                )
+                // res.status(201).json()
             }
         ).catch(
             function (erro) {
@@ -26,12 +32,12 @@ function resultadoQuiz(idJogador, acertos) {
 
 function pegarDadosQuiz(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
-
-    var idJogador = req.body.idJogadorServer;
+    const { pontuacao, idJogador } = req.body;
+    
     // Faça as validações dos valores
 
     // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-    dashboardModel.pegarDadosQuiz(idJogador)
+    dashboardModel.pegarDadosQuiz(idJogador,pontuacao)
         .then(
             function (resultado) {
                 res.status(201).json(resultado)
@@ -49,3 +55,4 @@ function pegarDadosQuiz(req, res) {
 }
 module.exports = { resultadoQuiz,
                     pegarDadosQuiz}
+                    

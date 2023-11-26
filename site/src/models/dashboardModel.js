@@ -10,20 +10,22 @@ function resultadoQuiz(acertos, fkJogador) {
 
 }
 
-async function pegarDadosQuiz(idJogador) {
-    var pegarDadosQuiz = `
-    SELECT pontuacao as Pontuação FROM pontuacao where fkJogador = ${idJogador};`;
-    
-    var pegarDadosQuiz = await database.executar(pegarDadosQuiz);
-    
-    
-    
-    console.log(pegarDadosQui)
-    
-    return {
-        dadosQuizHtml: pegarDadosQuiz,
+async function pegarDadosQuiz(idResultado) {
+    var pegarDadosQuiz = 
         
-    }
+        `SELECT * FROM pontuacao join jogador on fkJogador = idJogador where idPontuacao = ${idResultado};`
+    
+    return  database.executar(pegarDadosQuiz);
+    
+    
+    
+    // console.log(pegarDadosQuiz)
+    
+    // return {
+    //     dadosQuizHtml: pegarDadosQuiz,
+        
+    // }
 }
+
 module.exports = { resultadoQuiz ,
                 pegarDadosQuiz}

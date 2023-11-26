@@ -1,5 +1,5 @@
 var usuarioModel = require("../models/usuarioModel");
-var aquarioModel = require("../models/aquarioModel");
+var dashboardModel = require("../models/dashboardModel");
 
 function autenticar(req, res) {
     var username = req.body.usernameServer;
@@ -78,8 +78,14 @@ function cadastrarPontuacao(req, res) {
     const { pontuacao, idJogador } = req.body;
 
     usuarioModel.cadastrarPontuacao(idJogador, pontuacao)
-        .then(() => {
-            res.status(200).json();
+        .then(function (resultado) {
+            dashboardModel.pegarDadosQuiz(resultado.insertId).then(function(resultado){
+                console.log(resultado)
+                res.status(201).json(resultado)
+            }
+
+            )
+            // res.status(201).json()
         }).catch((erro) => {
             console.log(erro);
             console.log(
