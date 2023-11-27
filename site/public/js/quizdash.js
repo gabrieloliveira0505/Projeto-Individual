@@ -47,7 +47,6 @@ function corrigir() {
           resposta => {
                   var pontuacao = [resposta[0].pontuacao];
                   chartAcerto.data.datasets[0].data = pontuacao
-                  
                   chartAcerto.update();
             // console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
           }
