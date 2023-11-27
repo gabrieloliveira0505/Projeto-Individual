@@ -59,7 +59,7 @@ function cadastrar(req, res) {
 
 
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js 1  3 4
-        usuarioModel.cadastrar(nome, username, senha, agente, classe, idElo)
+        usuarioModel.cadastrar(nome, username, agente, classe, senha, idElo)
             .then((resultado) => {
                 res.json(resultado);
             }).catch((erro) => {
