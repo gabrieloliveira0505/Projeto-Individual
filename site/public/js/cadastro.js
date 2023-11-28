@@ -41,7 +41,7 @@ function Exibir() {
   if (username.indexOf('#') >= 0) { div_username.innerHTML = 'Username válido! <br>' }
   else { div_usernameErrado.innerHTML = 'Informe um username válido! <br>' }
 
-  if (agente.length > 3) {
+  if (agente.length >= 3) {
       div_agente.innerHTML = `agente válido! <br>`
   } else { div_agenteErrado.innerHTML = `Informe um agente válido <br>` }
 

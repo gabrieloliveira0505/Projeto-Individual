@@ -53,11 +53,9 @@ fkJogador int,
     (null,"Platina"),
     (null,"Diamante"),
     (null,"Ascendente"),
-    (null,"Imortal");
-    
-    INSERT INTO elo values
+    (null,"Imortal"),
     (null,"Radiante");
-    
+   
     INSERT INTO jogador VALUES
     (null,"Gabriel","biel#2002",'Reyna','Duelista', 'vava2023',100);
     

@@ -42,20 +42,20 @@
                 <div class="navbar"> <!--DIV NAVBAR-->
                     <ul>
                         <li class="Home">
-                            <a href="#">
+                            <a href="index.html">
                                 Home
                             </a>
                         </li>
     
                         <li class="sobre">
-                            <a href="#sobre-nos">
-                                Sobre mim
+                            <a href="#social">
+                                Informações
                             </a>
                         </li>
     
                         <li class="informacoes">
-                            <a href="#informacoes">
-                                Informações
+                            <a href="#social2">
+                                Inclusivo
                             </a>
                         </li>
     
@@ -66,12 +66,12 @@
                 <div class="cadastro-login"> <!--DIV CADASTRO-LOGIN-->
                     <ul>
                         <li class="borda-cadastro">
-                            <a href="#">
+                            <a href="cadastro.html">
                                 <b><i class="uil uil-signin icon-cadastro"></i></b>Cadastre-se
                             </a>
                         </li>
     
-                        <li><a href="#">
+                        <li><a href="login.html">
                                 <b><b><i class="uil uil-sign-in-alt icon-login"></i></b>Login</b>
                             </a>
                         </li>
@@ -84,7 +84,7 @@
     
     </header>
 
-    
+    <div class="imagem-fundo">
         <h2 class="titulo">QUIZ</h2>
     
 
@@ -203,7 +203,7 @@
         </section>
         
         <section id="p8">
-            <h3>9 - Quanto de dinheiro um player ganha ao abater um inimigo no roud passado?</h3>
+            <h3>9 - Quanto de dinheiro um player ganha ao abater um inimigo no round passado?</h3>
             <label>
                 <input type="radio" value="1" name="p8" onclick="resposta(8,this)"> 350
             </label> <label>
@@ -288,7 +288,7 @@
         </section>
         
         <section id="p14">
-            <h3>15 - Quais Os Três Mapas Que Estão Desde o Beta?</h3>
+            <h3>15 - Quais os três mapas que estão desde o beta?</h3>
             <label>
                 <input type="radio" value="1" name="p14" onclick="resposta(14,this)"> Bind,Haven e Split
             </label> <label>
@@ -309,10 +309,10 @@
     <canvas id="myChart"style="position: relative;"></canvas>
         
     </div>
-
-    <div>
+</div>
+    <!-- <div>
         <canvas id="myChart2"style="position: relative; "></canvas>
-    </div>
+    </div> -->
 
 </body>
 
@@ -410,16 +410,16 @@ function corrigir() {
         ]
     }
 
-    const dataDashboardCss = {
-        labels: [],
-        datasets: [{
-            label: 'Acertos',
-            backgroundColor: '#00d9ff',
-            data: [],
-            borderWidth: 1,
-        },
-        ]
-    }
+    // const dataDashboardCss = {
+    //     labels: [],
+    //     datasets: [{
+    //         label: 'Acertos',
+    //         backgroundColor: '#00d9ff',
+    //         data: [],
+    //         borderWidth: 1,
+    //     },
+    //     ]
+    // }
 
     const options = {
          
@@ -458,83 +458,33 @@ function corrigir() {
         options
     });
 
-    const ctx2 = document.getElementById('myChart2');
-    var cssChart = new Chart(ctx2, {
-        type: 'bar',
-        data: dataDashboardCss,
-        options
-    });
+    // const ctx2 = document.getElementById('myChart2');
+    // var cssChart = new Chart(ctx2, {
+    //     type: 'bar',
+    //     data: dataDashboardCss,
+    //     options
+    // });
 
 
-    function dado() {
-        dados.style.display = 'block'
-        analytics.style.display = 'none'
-    }
-
-    // async function verpontuacao() {
-    //     dados.style.display = 'none'
-    //     analytics.style.display = 'block'
-    //     var idJogador = sessionStorage.ID_JOGADOR
-
-    //     var resultado = await fetch("/dashboard/pegarDadosQuiz", {
-    //         method: "GET",
-    //         headers: {
-    //             "Content-Type": "application/json",
-    //         },
-    //         body: JSON.stringify({
-    //             idJogadorServer: idJogador,
-    //             pontuacao:acertos
-    //         }),
-    //     });
-
-    //     const resposta = await resultado.json();
-
-    //     tHtml.innerHTML = resposta.tentativaQuizHtml
-    //     // tCss.innerHTML = resposta.tentativaQuizCss
-    //     // tTotal.innerHTML = resposta.totalQuizRealizado
-
-
-    //     var resultadoDashboard = await fetch("/dashboard/pegarDadosQuiz", {
-    //         method: "GET",
-    //         headers: {
-    //             "Content-Type": "application/json",
-    //         },
-    //         body: JSON.stringify({
-    //             idJogadorServer: idJogador,
-    //             pontuacao:acertos
-    //         }),
-    //     });
-
-    //     var response = await resultadoDashboard.json();
-
-    //     onUpdateChartHtml(response);
-    //     // onUpdateChartCSS(response);
+    // function dado() {
+    //     dados.style.display = 'block'
+    //     analytics.style.display = 'none'
     // }
 
-    const onUpdateChartHtml = ({ dadosQuizHtml }) => {
-        var labels = dadosQuizHtml.map((args, index) => `Tentativa - ${index + 1}`)
 
-        var acertos = dadosQuizHtml.map(args => args.acertos);
-        // var errosHtml = dadosQuizHtml.map(args => args.qtdErrosHtml);
+   
+    
+    // const onUpdateChartHtml = ({ dadosQuizHtml }) => {
+    //     var labels = dadosQuizHtml.map((args, index) => `Tentativa - ${index + 1}`)
 
-        dataDashboardHtml.labels = labels;
-        dataDashboardHtml.datasets[0].data = acertos;
-        // dataDashboardHtml.datasets[1].data = errosHtml;
+    //     var acertos = dadosQuizHtml.map(args => args.acertos);
+    //     // var errosHtml = dadosQuizHtml.map(args => args.qtdErrosHtml);
 
-        htmlChart.update();
-    };
+    //     dataDashboardHtml.labels = labels;
+    //     dataDashboardHtml.datasets[0].data = acertos;
+    //     // dataDashboardHtml.datasets[1].data = errosHtml;
 
-    // const onUpdateChartCSS = ({ dadosQuizCss }) => {
-    //     var labels = dadosQuizCss.map((args, index) => `Tentativa - ${index + 1}`)
-
-    //     var acertosCss = dadosQuizCss.map(args => args.qtdAcertosCss);
-    //     var errosCss = dadosQuizCss.map(args => args.qtdErrosCss);
-
-    //     dataDashboardCss.labels = labels;
-    //     dataDashboardCss.datasets[0].data = acertosCss;
-    //     dataDashboardCss.datasets[1].data = errosCss;
-
-    //     cssChart.update();
+    //     htmlChart.update();
     // };
 
 

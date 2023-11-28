@@ -3,6 +3,7 @@
     padding: 0;
     font-family: 'Ubuntu', sans-serif;
     border: none;
+    scroll-behavior: smooth;
   }
   
   body{
@@ -16,9 +17,18 @@
      height: 120%;
     position: relative;
     top: 70px;
-    
-       
   }
+    ::-webkit-scrollbar-track {
+        background-color:  black;
+    }
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: rgb(189, 189, 189);
+    }
+       
+  
   
   
   .header{

@@ -2,8 +2,17 @@
     margin: 0;
     padding: 0;
     font-family: 'Ubuntu', sans-serif;
+    scroll-behavior: smooth;
 }
-
+::-webkit-scrollbar-track {
+    background-color:  black;
+}
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background: rgb(189, 189, 189);
+}
 /* body {
     display: flex;
     background-color: #9d9db4ee;
@@ -16,7 +25,9 @@
 } */
 
 .titulo {
-    color: white;
+    
+    margin-right: 110px;
+    color: black;
     display: flex;
     justify-content: center;
 }
@@ -79,6 +90,7 @@ li {
 #myChart{
     background-color: grey;
     border-radius: 5px;
+    color: black;
 }
     
 
