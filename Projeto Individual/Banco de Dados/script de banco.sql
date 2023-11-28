@@ -19,12 +19,21 @@ fkElo int,
 	foreign key (fkElo) references elo (idElo)
 );
 
+
+CREATE TABLE questionario (
+idQuestionario int auto_increment,
+qtdQuestoes int,
+fkJogador int,
+	foreign key (fkJogador) references jogador (idJogador),
+    primary key (idQuestionario,fkJogador));
+    
+    
 CREATE TABLE pontuacao (
 idPontuacao int auto_increment,
 pontuacao int,
 fkJogador int,
 	foreign key (fkJogador) references jogador (idJogador),
-    primary key (idPontuacao,fkJogador))auto_increment = 200;
+    primary key (idPontuacao,fkJogador));
     
     INSERT INTO pontuacao values
     (null, 0, 1),

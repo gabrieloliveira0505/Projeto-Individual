@@ -347,7 +347,8 @@ function corrigir() {
     }
   }
   document.getElementById("resultado").innerHTML = acertos
-
+  
+  
   var idJogador = sessionStorage.getItem("ID_JOGADOR");;
 
   fetch("/usuario/cadastrarPontuacao", {
