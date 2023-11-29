@@ -48,13 +48,13 @@
                         </li>
     
                         <li class="sobre">
-                            <a href="#social">
+                            <a href="./index.html#social">
                                 Informações
                             </a>
                         </li>
     
                         <li class="informacoes">
-                            <a href="#social2">
+                            <a href="./index.html#social2">
                                 Inclusivo
                             </a>
                         </li>
@@ -90,7 +90,7 @@
 
    
 
-    <div class="conteinerr">
+    <div id="quiz" class="conteinerr" style="display:block;">
         <section id="p0">
             <h3>1 - Com quantos créditos você inicia o primeiro round?</h3>
             <label>
@@ -333,20 +333,20 @@ function resposta(num_pergunta, selecionada) {
   labels[3].style.backgroundColor = "#adb8b1";
   labels[5].style.backgroundColor = "#adb8b1";
   labels[7].style.backgroundColor = "#adb8b1";
-
+  labels[9].style.backgroundColor = "#adb8b1";
 
   selecionada.parentNode.style.backgroundColor = "#808080"
 }
 
 function corrigir() {
-  
+
   acertos = 0;
   for (i = 0; i < corretas.length; i++) {
     if (corretas[i] == opcao[i]) {
       acertos++;
     }
   }
-  document.getElementById("resultado").innerHTML = acertos
+  document.getElementById("resultado").innerHTML = `${acertos} <br> Em porcentagem : ${((acertos/15) * 100).toFixed(0)}%`
   
   
   var idJogador = sessionStorage.getItem("ID_JOGADOR");;
@@ -404,7 +404,7 @@ function corrigir() {
         labels: [],
         datasets: [{
             label: 'Acertos',
-            backgroundColor: '#00d9ff',
+            backgroundColor: 'black',
             data: [],
             borderWidth: 1,
         },

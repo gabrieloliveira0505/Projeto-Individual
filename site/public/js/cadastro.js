@@ -31,19 +31,25 @@ function Exibir() {
 
 
   // O "Length" serve para saber o tamanho da palavra especificada antes do " . ", nesse caso o texto da variavel "nome"
-  if (nome.length > 3) {
+  if (nome.length >= 3) {
       div_nome.innerHTML = `O nome é valido! <br>`
-  } else { div_nomeErrado.innerHTML = `Informe um nome válido <br>` }
+  } else { div_nomeErrado.innerHTML = `Informe um nome válido <br>` 
+return
+}
 
 
   // indexOf verifica se tem um dos caracteres especificados dentro do (), se a condição for verdadeira ela responde algo >= 0;
   // Nesse caso tambem usei o conector lógico && pois o email precisa ter o "@" e mais um sufixo (.com ou .br)
   if (username.indexOf('#') >= 0) { div_username.innerHTML = 'Username válido! <br>' }
-  else { div_usernameErrado.innerHTML = 'Informe um username válido! <br>' }
+  else { div_usernameErrado.innerHTML = 'Informe um username válido! <br>' 
+return
+}
 
   if (agente.length >= 3) {
       div_agente.innerHTML = `agente válido! <br>`
-  } else { div_agenteErrado.innerHTML = `Informe um agente válido <br>` }
+  } else { div_agenteErrado.innerHTML = `Informe um agente válido <br>` 
+return
+}
 
   if (classe.indexOf('Duelista') >= 0
       || classe.indexOf('Iniciador') >= 0
@@ -52,7 +58,8 @@ function Exibir() {
       div_classe.innerHTML = `Classe Válida <br>`
   } else {
       div_classeErrada.innerHTML = `Informe uma classe válida`
-  }
+  return
+}
 
 
   if (senha.length >= 8 &&
@@ -67,7 +74,8 @@ function Exibir() {
       div_senha.innerHTML = ` Sua senha é válida! <br>`
   } else {
       div_senhaErrada.innerHTML = `Sua senha deve possuir ao menos 8 caracteres <br> e pelo menos um caracter especial! <br>`
-  }
+  return
+}
 
   fetch("usuario/cadastrar", {
     method: "POST",

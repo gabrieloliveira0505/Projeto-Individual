@@ -18,7 +18,7 @@ function resposta(num_pergunta, selecionada) {
 }
 
 function corrigir() {
-  
+  quiz.style.display = "none"
   acertos = 0;
   for (i = 0; i < corretas.length; i++) {
     if (corretas[i] == opcao[i]) {

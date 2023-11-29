@@ -8,13 +8,15 @@ function acessar() {
   }
   else {
     div_mensagem.innerHTML = ' <p class="erro"> Coloque um username valido <br></p>'
-  }
+  return
+}
 
 
   if (senha.length >= 8) {
     div_mensagem.innerHTML += `<p class="sucesso">Sua senha está correta <br> </p>`;
   } else {
     div_mensagem.innerHTML += `<p class="erro">Sua senha deve possuir ao menos 8 caracteres <br> </p>`;
+  return
   }
   
   fetch("/usuario/autenticar", {
